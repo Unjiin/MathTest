@@ -14,6 +14,10 @@ add_library(Lib STATIC
         Lib/mathtest.h
 )
 
+target_include_directories(Lib PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}/Lib
+)
+
 # =========================
 # Основное приложение MathTest
 # =========================
