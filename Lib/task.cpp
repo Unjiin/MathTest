@@ -5,14 +5,16 @@ Task::Task() {
     num_1 = rand() % 10 + 1;
     num_2 = rand() % 10 + 1;
 
-    int op = rand() % 3;
+    int op = rand() % 4;
 
     if (op == 0)
         operation = '+';
     else if (op == 1)
         operation = '-';
-    else
+    else if (op == 2)
         operation = '*';
+    else
+        operation = '/';
 
     calculateAnswer();
 }
@@ -28,8 +30,10 @@ Task::Task(int min, int max, char op) {
             operation = '+';
         else if (randomOp == 1)
             operation = '-';
-        else
+        else if (randomOp == 2)
             operation = '*';
+        else
+            operation = '/';
     }
     else {
         operation = op;
@@ -45,4 +49,6 @@ void Task::calculateAnswer() {
         answer = num_1 - num_2;
     else if (operation == '*')
         answer = num_1 * num_2;
+    else if (operation == '/')
+        answer = num_1 / num_2;
 }

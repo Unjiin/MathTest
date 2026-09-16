@@ -3,11 +3,33 @@ project(MathTest)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(MathTest MathTest/main.cpp
-        Lib/task.cpp
-        Lib/task.h)
+# =========================
+# Статическая библиотека Lib
+# =========================
 
+add_library(Lib STATIC
+        Lib/task.cpp
+        Lib/task.h
+        Lib/mathtest.cpp
+        Lib/mathtest.h
+)
+
+# =========================
+# Основное приложение MathTest
+# =========================
+
+add_executable(MathTest
+        MathTest/main.cpp
+)
+
+# Подключаем Lib к MathTest
+target_link_libraries(MathTest PRIVATE Lib)
+
+
+# =========================
 # GoogleTest
+# =========================
+
 include(FetchContent)
 
 FetchContent_Declare(
@@ -22,19 +44,21 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
-# Отдельный исполняемый файл с тестами
+
+# =========================
+# Проект с тестами
+# =========================
+
 add_executable(MathTests
         Tests/tests.cpp
-        Lib/task.cpp
-        Lib/task.h
 )
 
+# Подключаем GoogleTest и нашу библиотеку Lib
 target_link_libraries(
         MathTests
         GTest::gtest_main
+        Lib
 )
 
 include(GoogleTest)
 gtest_discover_tests(MathTests)
-
-
