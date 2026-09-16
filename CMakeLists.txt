@@ -10,8 +10,8 @@ set(CMAKE_CXX_STANDARD 20)
 add_library(Lib STATIC
         Lib/task.cpp
         Lib/task.h
-        Lib/mathtest.cpp
-        Lib/mathtest.h
+        Lib/MathTest.cpp
+        Lib/MathTest.h
 )
 
 target_include_directories(Lib PUBLIC
