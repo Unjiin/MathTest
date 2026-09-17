@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 #include "task.h"
-#include "mathtest.h"
+#include "MathTest.h"
 
 // Проверяем конструктор по умолчанию
 TEST(TaskTest, DefaultConstructor) {

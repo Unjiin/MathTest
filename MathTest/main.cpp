@@ -1,4 +1,4 @@
-#include "mathtest.h"
+#include "MathTest.h"
 
 int main() {
     MathTest test(5, 1, 20);
