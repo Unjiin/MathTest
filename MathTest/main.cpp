@@ -1,11 +1,9 @@
-#include <iostream>
-
+#include "MathTest.h"
 
 int main() {
+    MathTest test(5, 1, 20);
 
-    const auto lang = "C++";
-    std::cout << "Hello and welcome to " << lang << "!\n";
-
+    test.run();
 
     return 0;
 }

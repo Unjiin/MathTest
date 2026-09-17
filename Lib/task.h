@@ -1,11 +1,18 @@
-//
-// Created by 1 on 15.09.2026.
-//
-
 #ifndef MATHTEST_TASK_H
 #define MATHTEST_TASK_H
 
-struct Task;
-class MathTest;
+struct Task {
+    int num_1;
+    int num_2;
+    char operation;
+    int answer{};
 
-#endif //MATHTEST_TASK_H
+    Task();
+
+    Task(int min, int max, char operation = '\0');
+
+    void calculateAnswer();
+};
+
+
+#endif
