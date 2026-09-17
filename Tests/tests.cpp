@@ -10,7 +10,8 @@ TEST(TaskTest, DefaultConstructor) {
     EXPECT_TRUE(
         task.operation == '+' ||
         task.operation == '-' ||
-        task.operation == '*'
+        task.operation == '*' ||
+        task.operation == '/'
     );
 
     // Проверяем правильность ответа
@@ -20,6 +21,8 @@ TEST(TaskTest, DefaultConstructor) {
         EXPECT_EQ(task.answer, task.num_1 - task.num_2);
     else if (task.operation == '*')
         EXPECT_EQ(task.answer, task.num_1 * task.num_2);
+    else if (task.operation == '/')
+        EXPECT_EQ(task.answer, task.num_1 / task.num_2);
 }
 
 
@@ -61,7 +64,13 @@ TEST(TaskTest, MultiplyOperation) {
     EXPECT_EQ(task.answer, task.num_1 * task.num_2);
 }
 
+// Проверяем заданную операцию /
+TEST(TaskTest, FourthOperation) {
+    Task task(10, 5, '/');
 
+    EXPECT_EQ(task.operation, '/');
+    EXPECT_EQ(task.answer, task.num_1 / task.num_2);
+}
 
 TEST(MathTestTest, ConstructorCount) {
     MathTest test(5);

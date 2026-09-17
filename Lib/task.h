@@ -14,6 +14,5 @@ struct Task {
     void calculateAnswer();
 };
 
-class MathTest;
 
 #endif

@@ -33,7 +33,8 @@ Task::Task(int min, int max, char op) {
         else if (randomOp == 2)
             operation = '*';
         else
-            operation = '/';
+            if (max != 0 || min != 0) operation = '/';
+            else operation = '+';
     }
     else {
         operation = op;
